@@ -1,7 +1,6 @@
 package ru.javaops.bootjava.model;
 
 import lombok.*;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
@@ -18,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Slf4j
 @ToString(callSuper = true, exclude = {"password"})
-public class User extends AbstractPersistable<Integer> {
+public class User extends BaseEntity {
 
     @Column(name = "email", nullable = false, unique = true)
     @Email
