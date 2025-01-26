@@ -1,6 +1,10 @@
 package ru.javaops.bootjava.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.*;
+import org.springframework.util.StringUtils;
+import ru.javaops.bootjava.util.JsonDeserializers;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
@@ -36,6 +40,8 @@ public class User extends BaseEntity implements Serializable {
 
     @Column(name = "password")
     @Size(max = 256)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonDeserialize(using = JsonDeserializers.PasswordDeserializer.class)
     private String password;
 
     @Enumerated(EnumType.STRING)
@@ -43,4 +49,8 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = "role")
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
+
+    public void setEmail(String email) {
+        this.email = StringUtils.hasText(email) ? email.toLowerCase() : null;
+    }
 }
