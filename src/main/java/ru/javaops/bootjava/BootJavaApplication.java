@@ -11,11 +11,11 @@ import java.util.Set;
 
 @SpringBootApplication
 @AllArgsConstructor
-public class RestaurantVotingApplication {
+public class BootJavaApplication {
     private final UserRepository userRepository;
 
         public static void main(String[] args) {
-            SpringApplication.run(RestaurantVotingApplication.class, args);
+            SpringApplication.run(BootJavaApplication.class, args);
         }
 
 }
