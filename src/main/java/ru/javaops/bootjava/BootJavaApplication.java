@@ -5,7 +5,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import ru.javaops.bootjava.repository.UserRepository;
+import ru.javaops.bootjava.user.repository.UserRepository;
 
 import java.util.Set;
 
